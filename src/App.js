@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import InstagramPost from './Pages/Instagram';
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+      <Route path="/instagram" element={<InstagramPost />} />
     </Routes>
   );
 }
