@@ -8,12 +8,12 @@ const postTypes = {
     codeBlock: CodeBlockPost,
 };
 
-const exampleCode = `const helloWorld = () => {
-    console.log('Hello, world!');
-};`;
-
 function InstagramPost() {
     const [selectedPostType, setSelectedPostType] = useState('codeBlock');
+    const [code, setCode] = useState(`const helloWorld = () => {
+    console.log('Hello, world!');
+};`);
+    const [lang, setLang] = useState('javascript');
     const PostComponent = postTypes[selectedPostType];
     const postRef = useRef();
 
@@ -39,8 +39,27 @@ function InstagramPost() {
     };
 
     return (
-        <div className="InstagramPost p-6 bg-gray-100 min-h-screen flex flex-col items-center">
-            <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-6">
+        <div className="InstagramPost p-6 bg-gray-100 min-h-screen flex">
+            {/* Left Panel for Code Input */}
+            <div className="w-1/3 bg-white rounded-lg shadow-md p-6 mr-4">
+                <select
+                    className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    onChange={(e) => setLang(e.target.value)}
+                    value={lang}
+                >
+                    <option value="javascript">Javascript</option>
+                    <option value="php">PHP</option>
+                    {/* Add other options here */}
+                </select>
+                <textarea
+                    className="w-full h-full border border-gray-300 p-4 rounded-lg"
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    placeholder="Type your code here..."
+                />
+            </div>
+            {/* Right Panel for Post Preview and Export */}
+            <div className="w-2/3 bg-white rounded-lg shadow-md p-6">
                 <div className="flex justify-between items-center mb-4">
                     <select
                         className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
@@ -68,11 +87,11 @@ function InstagramPost() {
                         position: 'relative',
                     }}
                 >
-                    <PostComponent code={exampleCode} language="javascript" />
+                    <PostComponent code={code} language={lang} />
                 </div>
                 {/* Hidden Export Version */}
                 <div className="hidden">
-                    <PostComponent ref={postRef} code={exampleCode} language="javascript" isExport />
+                    <PostComponent ref={postRef} code={code} language={lang} isExport />
                 </div>
             </div>
         </div>
