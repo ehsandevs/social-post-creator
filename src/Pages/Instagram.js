@@ -89,10 +89,6 @@ function InstagramPost() {
                 >
                     <PostComponent ref={postRef} code={code} language={lang} />
                 </div>
-                {/* Hidden Export Version */}
-                {/* <div className="hidden">
-                    <PostComponent ref={postRef} code={code} language={lang} isExport />
-                </div> */}
             </div>
         </div>
     );

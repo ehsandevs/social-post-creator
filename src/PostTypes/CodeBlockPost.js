@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import PostWrapper from '../Components/HOC/PostWrapper';
 
-const CodeBlockPost = (props) => {
+const CodeBlockPost = forwardRef((props, ref) => {
     const { code, language = 'javascript', isExport = false } = props;
 
     return (
@@ -38,6 +38,6 @@ const CodeBlockPost = (props) => {
             </SyntaxHighlighter>
         </div>
     );
-};
+});
 
-export default PostWrapper(CodeBlockPost);
+export default PostWrapper(CodeBlockPost, { forwardRef: true });
