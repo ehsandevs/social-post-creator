@@ -87,12 +87,12 @@ function InstagramPost() {
                         position: 'relative',
                     }}
                 >
-                    <PostComponent code={code} language={lang} />
+                    <PostComponent ref={postRef} code={code} language={lang} />
                 </div>
                 {/* Hidden Export Version */}
-                <div className="hidden">
+                {/* <div className="hidden">
                     <PostComponent ref={postRef} code={code} language={lang} isExport />
-                </div>
+                </div> */}
             </div>
         </div>
     );

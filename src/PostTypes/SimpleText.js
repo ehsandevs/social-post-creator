@@ -1,12 +1,13 @@
 import React from 'react';
+import PostWrapper from '../Components/HOC/PostWrapper'; // Ensure this path is correct
 
-const SimpleText = React.forwardRef((props, ref) => {
+const SimpleText = (props) => {
     return (
-        <div ref={ref} className="post-design" style={{ width: '1080px', height: '1080px', backgroundColor: 'paleturquoise' }}>
+        <div className="w-[95%] overflow-hidden bg-paleturquoise">
             <h1 style={{ color: 'white' }}>Instagram Post</h1>
             <h2>Design your Instagram post here</h2>
         </div>
     );
-});
+};
 
-export default SimpleText;
+export default PostWrapper(SimpleText);
