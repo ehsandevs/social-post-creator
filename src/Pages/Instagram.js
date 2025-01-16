@@ -36,17 +36,29 @@ function InstagramPost() {
     };
 
     return (
-        <div className="InstagramPost">
-            <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={exportAsImage}>
-                Export as Image
-            </button>
-            <select onChange={(e) => setSelectedPostType(e.target.value)} value={selectedPostType}>
-                <option value="simpleText">Simple Text</option>
-                <option value="codeBlock">Code Block</option>
-                {/* Add other options here */}
-            </select>
-            <PostComponent ref={postRef} code={exampleCode}
-                language="javascript" />
+        <div className="InstagramPost p-6 bg-gray-100 min-h-screen flex flex-col items-center">
+            <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-6">
+                <div className="flex justify-between items-center mb-4">
+                    <select
+                        className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                        onChange={(e) => setSelectedPostType(e.target.value)}
+                        value={selectedPostType}
+                    >
+                        <option value="simpleText">Simple Text</option>
+                        <option value="codeBlock">Code Block</option>
+                        {/* Add other options here */}
+                    </select>
+                    <button
+                        className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={exportAsImage}
+                    >
+                        Export as Image
+                    </button>
+                </div>
+                <div className="border border-gray-300 p-4 rounded-lg">
+                    <PostComponent ref={postRef} code={exampleCode} language="javascript" />
+                </div>
+            </div>
         </div>
     );
 }
