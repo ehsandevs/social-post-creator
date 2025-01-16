@@ -1,7 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { toJpeg } from 'html-to-image';
+import SimpleText from '../PostTypes/SimpleText';
+
+const postTypes = {
+    simpleText: SimpleText,
+    // Add other post types here
+};
 
 function InstagramPost() {
+    const [selectedPostType, setSelectedPostType] = useState('simpleText');
+    const PostComponent = postTypes[selectedPostType];
     const postRef = useRef();
 
     const exportAsImage = () => {
@@ -26,11 +34,11 @@ function InstagramPost() {
             <button onClick={exportAsImage}>
                 Export as Image
             </button>
-            <div ref={postRef} className="post-design" style={{ width: '1080px', height: '1080px' }}>
-                {/* Add your design elements here */}
-                <h1 style={{ color: 'white' }}>Instagram Post</h1>
-                <h2>Design your Instagram post here</h2>
-            </div>
+            <select onChange={(e) => setSelectedPostType(e.target.value)} value={selectedPostType}>
+                <option value="simpleText">Simple Text</option>
+                {/* Add other options here */}
+            </select>
+            <PostComponent ref={postRef} />
         </div>
     );
 }
