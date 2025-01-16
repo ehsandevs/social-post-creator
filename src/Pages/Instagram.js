@@ -6,7 +6,6 @@ import CodeBlockPost from '../PostTypes/CodeBlockPost';
 const postTypes = {
     simpleText: SimpleText,
     codeBlock: CodeBlockPost,
-    // Add other post types here
 };
 
 const exampleCode = `const helloWorld = () => {
@@ -59,15 +58,21 @@ function InstagramPost() {
                         Export as Image
                     </button>
                 </div>
+                {/* Display Version */}
                 <div
                     className="border border-gray-300 p-4 rounded-lg overflow-hidden"
                     style={{
-                        width: '1080px',
-                        height: '1080px',
+                        width: '100%',
+                        maxWidth: '540px',
+                        aspectRatio: '1 / 1',
                         position: 'relative',
                     }}
                 >
-                    <PostComponent ref={postRef} code={exampleCode} language="javascript" />
+                    <PostComponent code={exampleCode} language="javascript" />
+                </div>
+                {/* Hidden Export Version */}
+                <div className="hidden">
+                    <PostComponent ref={postRef} code={exampleCode} language="javascript" isExport />
                 </div>
             </div>
         </div>
