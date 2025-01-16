@@ -1,14 +1,20 @@
 import React, { useRef, useState } from 'react';
 import { toJpeg } from 'html-to-image';
 import SimpleText from '../PostTypes/SimpleText';
+import CodeBlockPost from '../PostTypes/CodeBlockPost';
 
 const postTypes = {
     simpleText: SimpleText,
+    codeBlock: CodeBlockPost,
     // Add other post types here
 };
 
+const exampleCode = `const helloWorld = () => {
+    console.log('Hello, world!');
+};`;
+
 function InstagramPost() {
-    const [selectedPostType, setSelectedPostType] = useState('simpleText');
+    const [selectedPostType, setSelectedPostType] = useState('codeBlock');
     const PostComponent = postTypes[selectedPostType];
     const postRef = useRef();
 
@@ -36,9 +42,11 @@ function InstagramPost() {
             </button>
             <select onChange={(e) => setSelectedPostType(e.target.value)} value={selectedPostType}>
                 <option value="simpleText">Simple Text</option>
+                <option value="codeBlock">Code Block</option>
                 {/* Add other options here */}
             </select>
-            <PostComponent ref={postRef} />
+            <PostComponent ref={postRef} code={exampleCode}
+                language="javascript" />
         </div>
     );
 }
