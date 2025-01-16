@@ -31,7 +31,6 @@ const CodeBlockPost = React.forwardRef((props, ref) => {
                         fontSize: "1.5rem",
                         padding: '30px',
                         borderRadius: '0 0 12px 12px',
-                        backgroundColor: '#2d2d2d'
                     }}
                     codeTagProps={{
                         lineHeight: "inherit",
