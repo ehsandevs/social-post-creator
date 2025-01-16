@@ -45,15 +45,14 @@ function InstagramPost() {
     };
 
     return (
-        <div className="InstagramPost p-6 bg-gray-100 min-h-screen flex">
+        <div className="InstagramPost p-6 bg-gray-100 min-h-screen flex justify-center items-center">
             <div className="w-1/3 bg-white rounded-lg shadow-md p-6 mr-4">
                 <PostTypeSelector selectedPostType={selectedPostType} setSelectedPostType={setSelectedPostType} />
                 <br />
                 <CodeInput code={code} setCode={setCode} lang={lang} setLang={setLang} />
-
                 <ExportButton onClick={exportAsImage} />
             </div>
-            <div className="w-2/3 bg-white rounded-lg shadow-md p-6">
+            <div className="w-2/3 bg-white rounded-lg shadow-md p-6 flex justify-center items-center">
                 <PostPreview PostComponent={PostComponent} postRef={postRef} code={code} lang={lang} />
             </div>
         </div>
