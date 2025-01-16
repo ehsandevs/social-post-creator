@@ -57,14 +57,15 @@ const CodeBlockPost = React.forwardRef((props, ref) => {
                     style={vscDarkPlus}
                     customStyle={{
                         fontFamily: "monospace, 'Fira Code', 'Courier New'",
-                        fontSize: '23px', // Increased for Instagram readability
-                        lineHeight: '1.6', // Add spacing for clarity
+                        lineHeight: "1.4",
+                        fontSize: "1.5rem",
                         padding: '30px',
                         borderRadius: '0 0 12px 12px',
                         backgroundColor: '#2d2d2d'
                     }}
                     codeTagProps={{
-                        fontSize: '30px', // Increased for Instagram readability
+                        lineHeight: "inherit",
+                        fontSize: "inherit"
                     }}
                 >
                     {code}
