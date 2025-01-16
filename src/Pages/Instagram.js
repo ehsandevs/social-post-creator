@@ -23,7 +23,11 @@ function InstagramPost() {
             return;
         }
 
-        toJpeg(postRef.current, { quality: 0.95, width: 1080, height: 1080 })
+        toJpeg(postRef.current, {
+            quality: 0.95,
+            width: 1080,
+            height: 1080,
+        })
             .then((dataUrl) => {
                 const link = document.createElement('a');
                 link.download = 'instagram-post.jpeg';
