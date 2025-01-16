@@ -8,47 +8,17 @@ const CodeBlockPost = React.forwardRef((props, ref) => {
     return (
         <div
             ref={ref}
-            className="post-design"
-            style={{
-                width: '1080px',
-                height: '1080px',
-                backgroundColor: '#1e1e1e',
-                color: 'white',
-                padding: '30px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                boxSizing: 'border-box',
-                fontFamily: 'Arial, sans-serif',
-            }}
+            className="w-[1080px] h-[1080px] bg-gray-900 text-white p-8 flex flex-col justify-center items-center font-sans"
         >
-            <div
-                style={{
-                    width: '95%',
-                    border: '1px solid #444',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    backgroundColor: '#2d2d2d',
-                }}
-            >
+            <div className="w-[95%] border border-gray-700 rounded-lg overflow-hidden bg-gray-800">
                 {/* Header Bar */}
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        padding: '15px 20px',
-                        backgroundColor: '#1e1e1e',
-                        borderBottom: '1px solid #444',
-                    }}
-                >
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                        <span style={{ width: '14px', height: '14px', backgroundColor: '#ff5f56', borderRadius: '50%' }}></span>
-                        <span style={{ width: '14px', height: '14px', backgroundColor: '#ffbd2e', borderRadius: '50%' }}></span>
-                        <span style={{ width: '14px', height: '14px', backgroundColor: '#27c93f', borderRadius: '50%' }}></span>
+                <div className="flex justify-between items-center px-5 py-3 bg-gray-900 border-b border-gray-700">
+                    <div className="flex gap-2">
+                        <span className="w-4 h-4 bg-red-500 rounded-full"></span>
+                        <span className="w-4 h-4 bg-yellow-400 rounded-full"></span>
+                        <span className="w-4 h-4 bg-green-500 rounded-full"></span>
                     </div>
-                    <span style={{ color: '#ccc', fontSize: '16px', fontWeight: 'bold' }}>Code Snippet</span>
+                    <span className="text-gray-400 text-lg font-bold">Code Snippet</span>
                     <div></div>
                 </div>
                 {/* Code Block */}
