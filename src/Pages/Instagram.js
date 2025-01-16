@@ -62,26 +62,12 @@ function InstagramPost() {
                 <div
                     className="border border-gray-300 p-4 rounded-lg overflow-hidden"
                     style={{
-                        width: '100%',
-                        aspectRatio: '1', // Maintain 1:1 aspect ratio
+                        width: '1080px',
+                        height: '1080px',
                         position: 'relative',
                     }}
                 >
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            transform: 'scale(1)',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                    >
-                        <PostComponent ref={postRef} code={exampleCode} language="javascript" />
-                    </div>
+                    <PostComponent ref={postRef} code={exampleCode} language="javascript" />
                 </div>
             </div>
         </div>
