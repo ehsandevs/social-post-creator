@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostPreview = ({ PostComponent, postRef, code, lang }) => (
     <div
-        className="border border-gray-300 rounded-lg overflow-hidden"
+        className=""
         style={{
             width: '100%',
             maxWidth: '540px',
