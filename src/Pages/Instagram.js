@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { toPng } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 
 function InstagramPost() {
     const postRef = useRef();
@@ -9,10 +9,10 @@ function InstagramPost() {
             return;
         }
 
-        toPng(postRef.current)
+        toJpeg(postRef.current, { quality: 0.95 })
             .then((dataUrl) => {
                 const link = document.createElement('a');
-                link.download = 'instagram-post.png';
+                link.download = 'instagram-post.jpeg';
                 link.href = dataUrl;
                 link.click();
             })
@@ -23,14 +23,14 @@ function InstagramPost() {
 
     return (
         <div className="InstagramPost">
-            <div ref={postRef} className="post-design">
-                {/* Add your design elements here */}
-                <h1>Instagram Post</h1>
-                <p>Design your post here...</p>
-            </div>
             <button onClick={exportAsImage}>
                 Export as Image
             </button>
+            <div ref={postRef} className="post-design" style={{ width: '1080px', height: '1080px' }}>
+                {/* Add your design elements here */}
+                <h1 style={{ color: 'white' }}>Instagram Post</h1>
+                <h2>Design your Instagram post here</h2>
+            </div>
         </div>
     );
 }
