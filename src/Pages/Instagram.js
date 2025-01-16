@@ -22,10 +22,12 @@ function InstagramPost() {
             return;
         }
 
+        const { width, height } = postRef.current.getBoundingClientRect();
+
         toJpeg(postRef.current, {
             quality: 0.95,
-            width: 1080,
-            height: 1080,
+            width: width,
+            height: height,
         })
             .then((dataUrl) => {
                 const link = document.createElement('a');
