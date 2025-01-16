@@ -23,7 +23,7 @@ function InstagramPost() {
             return;
         }
 
-        toJpeg(postRef.current, { quality: 0.95 })
+        toJpeg(postRef.current, { quality: 0.95, width: 1080, height: 1080 })
             .then((dataUrl) => {
                 const link = document.createElement('a');
                 link.download = 'instagram-post.jpeg';
@@ -55,8 +55,29 @@ function InstagramPost() {
                         Export as Image
                     </button>
                 </div>
-                <div className="border border-gray-300 p-4 rounded-lg">
-                    <PostComponent ref={postRef} code={exampleCode} language="javascript" />
+                <div
+                    className="border border-gray-300 p-4 rounded-lg overflow-hidden"
+                    style={{
+                        width: '100%',
+                        aspectRatio: '1', // Maintain 1:1 aspect ratio
+                        position: 'relative',
+                    }}
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            transform: 'scale(1)',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <PostComponent ref={postRef} code={exampleCode} language="javascript" />
+                    </div>
                 </div>
             </div>
         </div>
